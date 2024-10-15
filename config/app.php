@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     
-    'nama' => 'ICU Team',
+    'about' => ' About ICU Team',
 
     /*
     |--------------------------------------------------------------------------
