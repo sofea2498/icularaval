@@ -10,7 +10,8 @@ use App\Http\Controllers\FeedController;
 
     Route::get('/feeds', [FeedController::class, 'index'])->name('feeds');
 
-    Route::post('/feeds/create', [FeedController::class, 'create'])->name('feed.create');
+    Route::get('/feeds/create', [FeedController::class, 'create'])->name('feed.create');
+    Route::post('/feeds/store', [FeedController::class, 'store'])->name('feed.store');
 
     Route::put('/feeds/update/{feed}', [FeedController::class, 'update'])->name('feed.update');
 

@@ -6,9 +6,13 @@
 
 <div class="container" mt-5>
 
-    <h1 class="text-center"> Sign In </h1>
+    <h1 class="text-center"> Sign Up </h1>
 
 <form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
     
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
@@ -21,7 +25,7 @@
       <input type="password" class="form-control" id="password" name="password">
     </div>
     
-    <button type="submit" class="btn btn-primary">Sign In</button>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
   </form>
 
 </div>

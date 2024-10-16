@@ -11,8 +11,8 @@ class FeedController extends Controller
     public function index() {
 
         //return "This is the Feed List"
-
-        return view('pages.feed.index');
+        $feeds = Feed::paginate(5);
+        return view('pages.feed.index', compact('feeds'));
     }
 
 
@@ -21,6 +21,24 @@ class FeedController extends Controller
         //return "This is the Feed List"
 
         return view('pages.feed.create');
+
+    }
+
+    public function store(Request $request ) {
+
+        $validated_request = $request->validate([
+            'title' => 'required | string | max:100',
+            'description' => 'required | string | max:300',
+        ]);
+
+        //ORM
+        //add a user id to the $validated_request
+        $validated_request['user_id'] = 1;
+        Feed::create($validated_request);
+        return redirect()->route('feeds')->with('success', 'Feed created successfully');
+        
+        // $feed->update($this->validateRequest($request));
+        // return redirect()->route('feeds')->with('success', 'Feed created successfully');
 
     }
 
