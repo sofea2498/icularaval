@@ -84,5 +84,14 @@ Route::name('job')->prefix('job')->group(function () {
 
 require __DIR__.'/feed/web.php';
 
-Route::get('/auth/signup', [AuthController::class, 'signUp'])->name('auth.signUp');
-Route::get('/auth/signin', [AuthController::class, 'signIn'])->name('auth.signin');
+Route::middleware('guest')->group(function(){
+
+    Route::get('/auth/signup', [AuthController::class, 'signUp'])->name('auth.signUp');
+    Route::get('/auth/signin', [AuthController::class, 'signIn'])->name('auth.signin');
+
+    Route::post('/auth/storeuser', [AuthController::class, 'storeUser'])->name('auth.storeuser');
+    Route::post('/auth/authenticate', [AuthController::class, 'authenticate'])->name('auth.authenticate');
+});
+
+
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');

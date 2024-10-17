@@ -12,8 +12,28 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('about')}}">About</a>
           </li>
+          {{-- <li class="nav-item">
+            <a class="nav-link" href="{{route('auth.logout')}}">Log Out</a>
+          </li>  --}}
     
         </ul>
+
+         <ul class="navbar-nav ms-auto">
+            @auth
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('auth.logout')}}">Log Out</a>
+              </li>
+            @endauth
+
+            @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('auth.signin')}}">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('auth.signUp')}}">Sign Up</a>
+              </li>
+            @endguest
+         </ul>
       </div>
     </div>
   </nav>

@@ -6,9 +6,21 @@
 
 <div class="container" mt-5>
 
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error )
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <h1 class="text-center"> Sign In </h1>
 
-<form>
+    <form action="{{ route('auth.authenticate') }}" method="POST">
+    @csrf   
     
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
