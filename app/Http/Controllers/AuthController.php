@@ -51,6 +51,9 @@ class AuthController extends Controller
         ]);
 
         if (FacadesAuth::attempt($credentials)) {
+           
+            $user = User::where('email', $request->email)->first;
+
             $request->session()->regenerate();
 
             return redirect()->intended('feeds');
